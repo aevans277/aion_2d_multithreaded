@@ -1,0 +1,26 @@
+[package]
+name = "aionsrc"
+version = "0.2.0"
+authors = ["Elliot Bentine <7041164+ElliotB256@users.noreply.github.com>"]
+edition = "2018"
+
+[dependencies]
+atomecs = { git = "https://github.com/TeamAtomECS/AtomECS", rev="42efe69" }
+nalgebra = { version = "0.18", features = ["serde-serialize"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+specs = { version = "0.16.1", features = ["parallel"] }
+specs-derive = "0.4.1"
+rand = "0.6.5"
+rayon = "1.5.1"
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+panic = 'unwind'
+incremental = false
+overflow-checks = false
